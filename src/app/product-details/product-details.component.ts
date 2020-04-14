@@ -21,9 +21,10 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
   this.route.paramMap.subscribe(params => {
-    //this.cnn=JSON.stringify(this.databasesService.db.enableNetwork());
-    this.cnn2=JSON.stringify( this.databasesService.db.collection('Prueba').get());
-    this.product = this.databasesService.db.collection('Prueba').get()[+params.get('productId')];
+     this.cnn=JSON.stringify(this.databasesService.db.ref('/Prueba/1'));
+  //  this.cnn2=JSON.stringify( this.databasesService.db.collection('Prueba').get());
+    this.product = this.databasesService.db.ref('/Prueba/1');
+       
   });
 }
 
