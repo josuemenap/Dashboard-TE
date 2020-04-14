@@ -15,7 +15,7 @@ firebase.initializeApp({
 });
 
 let db =firebase.firestore();
-export class database{
+export class DatabasesService{
  db;
 
   constructor(
