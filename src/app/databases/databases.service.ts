@@ -1,9 +1,10 @@
 
+import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/database';
-
-firebase.initializeApp({
+if (!firebase.apps.length) {
+  firebase.initializeApp({
   apiKey: "AIzaSyCGHvLdIHq0KdXVOcWpBjLXHNLW_vq0kDs",
   authDomain: "prueba-aca89.firebaseapp.com",
   databaseURL: "https://prueba-aca89.firebaseio.com",
@@ -13,12 +14,15 @@ firebase.initializeApp({
   appId: "1:996637448063:web:80f1586222b3afda132c4a",
   measurementId: "G-LFV64FVEKK"
 });
+}
 
-let db =firebase.firestore();
-export class DatabasesService{
- db;
 
-  constructor(
-  ) { }
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DatabasesService {
+   db =firebase.firestore();
 
 }
+
