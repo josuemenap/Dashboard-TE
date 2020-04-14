@@ -22,7 +22,6 @@ if (!firebase.apps.length) {
   providedIn: 'root',
 })
 export class DatabasesService {
-   db =firebase.firestore();
-
+  db=firebase.firestore()
 }
 

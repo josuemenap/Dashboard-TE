@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 import { products } from '../products';
+import { DatabasesService } from '../databases/databases.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -14,11 +15,12 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-  ) { }
+    private databasesService: DatabasesService,
+  ) {}
 
   ngOnInit() {
   this.route.paramMap.subscribe(params => {
-    this.product = products[+params.get('productId')];
+    this.product = this.databasesService.db.collection('Prueba').get()[+params.get('productId')];
   });
 }
 
